@@ -15,7 +15,7 @@ const Archivo = () => {
             ScrollTrigger.create({
                 trigger: containerRef.current,
                 start: 'top top',
-                end: `+=${window.innerHeight * 3}`, // 3 cards
+                end: `+=${window.innerHeight * 5}`, // 5 cards
                 pin: true,
             });
 
@@ -43,40 +43,64 @@ const Archivo = () => {
     return (
         <section id="archivo" ref={containerRef} className="relative w-full h-[100dvh] bg-dark overflow-hidden">
 
-            {/* Card 1: Doble hélice (Procesamiento continuo) */}
+            {/* Card 1: Transparencia */}
             <Card
                 ref={el => { cardsRef.current[0] = el; }}
                 zIndex={10}
                 bgColor="bg-light"
                 textColor="text-dark"
-                title="Procesamiento continuo"
-                subtitle="Doble Hélice"
-                description="Nuestro motor contable funciona como un engranaje perfecto. Ingerimos tus datos transaccionales diariamente para que el cierre fiscal sea un mero trámite, no un proyecto de fin de mes."
-                visual={<DoubleHelix />}
+                title="Transparencia"
+                subtitle="Principio Innegociable"
+                description="Cada número tiene trazabilidad; cada proceso tiene evidencia. No hay espacio para la duda."
+                visual={<LaserGrid color="#6D414E" />}
             />
 
-            {/* Card 2: Rejilla láser (Compliance) */}
+            {/* Card 2: Rigor Técnico */}
             <Card
                 ref={el => { cardsRef.current[1] = el; }}
                 zIndex={20}
-                bgColor="bg-[#F8F9FA]" // Slightly different white/gray
+                bgColor="bg-[#F8F9FA]"
                 textColor="text-dark"
-                title="Auditoría preventiva"
-                subtitle="Rejilla de Compliance"
-                description="Escaneamos cada registro contra la normativa vigente de la CMF y el SII. Detectamos anomalías antes de que se conviertan en contingencias fiscales."
-                visual={<LaserGrid />}
+                title="Rigor Técnico"
+                subtitle="Principio Innegociable"
+                description="Precisión contable no negociable bajo estándares internacionales. Garantizamos cumplimiento normativo absoluto."
+                visual={<DoubleHelix color="#6D414E" />}
             />
 
-            {/* Card 3: Línea EKG (Salud Financiera) */}
+            {/* Card 3: Confiabilidad */}
             <Card
                 ref={el => { cardsRef.current[2] = el; }}
                 zIndex={30}
                 bgColor="bg-primary"
                 textColor="text-light"
-                title="Salud operativa en tiempo real"
-                subtitle="Telemetría EKG"
-                description="No leas el pasado. Visualiza el pulso actual de tu operación y anticípate a los quiebres de flujo. Somos el monitor vital de tu empresa."
-                visual={<PulseLine />}
+                title="Confiabilidad"
+                subtitle="Principio Innegociable"
+                description="Los plazos acordados y los entregables son sagrados. Operamos con la puntualidad de un reloj suizo."
+                visual={<PulseLine color="#8B7E5B" />}
+            />
+
+            {/* Card 4: Agilidad */}
+            <Card
+                ref={el => { cardsRef.current[3] = el; }}
+                zIndex={40}
+                bgColor="bg-dark"
+                textColor="text-light"
+                title="Agilidad"
+                subtitle="Principio Innegociable"
+                description="La urgencia del cliente es operada como nuestra propia urgencia. Respuesta inmediata ante desafíos críticos."
+                visual={<LaserGrid color="#8B7E5B" />}
+            />
+
+            {/* Card 5: Empatía Profesional */}
+            <Card
+                ref={el => { cardsRef.current[4] = el; }}
+                zIndex={50}
+                bgColor="bg-secondary"
+                textColor="text-primary"
+                title="Empatía Profesional"
+                subtitle="Principio Innegociable"
+                description="Actuamos como aliados estratégicos del directorio, no como simples proveedores. Entendemos tu negocio."
+                visual={<DoubleHelix color="#6D414E" />}
             />
 
         </section>
@@ -123,15 +147,15 @@ const Card = React.forwardRef<HTMLDivElement, {
 });
 
 // Animations
-const DoubleHelix = () => {
+const DoubleHelix = ({ color = "#6D414E" }: { color?: string }) => {
     const iconRef = useRef(null);
     useEffect(() => {
         gsap.to(iconRef.current, { rotation: 360, duration: 8, repeat: -1, ease: "linear" });
     }, []);
-    return <RefreshCw ref={iconRef} size={120} strokeWidth={1} className="text-primary opacity-50" />;
+    return <RefreshCw ref={iconRef} size={120} strokeWidth={1} style={{ color }} className="opacity-50" />;
 };
 
-const LaserGrid = () => {
+const LaserGrid = ({ color = "#6D414E" }: { color?: string }) => {
     const laserRef = useRef(null);
     useEffect(() => {
         gsap.to(laserRef.current, { y: 200, duration: 2, repeat: -1, yoyo: true, ease: "power1.inOut" });
@@ -139,13 +163,13 @@ const LaserGrid = () => {
     return (
         <div className="relative w-64 h-64 border border-dark/20 grid grid-cols-4 grid-rows-4 opacity-50">
             {Array.from({ length: 16 }).map((_, i) => <div key={i} className="border border-dark/10" />)}
-            <div ref={laserRef} className="absolute top-0 left-0 w-full h-[2px] bg-primary shadow-[0_0_15px_#6D414E] z-10" />
-            <Scan size={48} strokeWidth={1} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary" />
+            <div ref={laserRef} style={{ backgroundColor: color, boxShadow: `0 0 15px ${color}` }} className="absolute top-0 left-0 w-full h-[2px] z-10" />
+            <Scan size={48} strokeWidth={1} style={{ color }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         </div>
     );
 };
 
-const PulseLine = () => {
+const PulseLine = ({ color = "#8B7E5B" }: { color?: string }) => {
     const pulseRef = useRef(null);
     useEffect(() => {
         gsap.fromTo(pulseRef.current,
@@ -155,8 +179,8 @@ const PulseLine = () => {
     }, []);
     return (
         <div className="relative w-64 flex items-center opacity-80">
-            <Activity size={120} strokeWidth={1} className="text-light" />
-            <div ref={pulseRef} className="absolute top-1/2 left-1/2 w-full h-[1px] bg-secondary" />
+            <Activity size={120} strokeWidth={1} style={{ color }} />
+            <div ref={pulseRef} style={{ backgroundColor: color }} className="absolute top-1/2 left-1/2 w-full h-[1px]" />
         </div>
     );
 };
