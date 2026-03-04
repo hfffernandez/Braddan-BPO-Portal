@@ -52,6 +52,7 @@ const Manifiesto = () => {
 
     return (
         <section
+            id="proposito"
             ref={sectionRef}
             className="relative w-full h-[100dvh] bg-dark flex items-center justify-center overflow-hidden px-8"
         >
