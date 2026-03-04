@@ -68,20 +68,16 @@ const Manifiesto = () => {
             <div className="absolute inset-0 bg-dark/60 mix-blend-multiply" />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-dark/90" />
 
-            <div className="relative z-10 max-w-5xl mx-auto flex flex-col gap-12 text-center md:text-left">
-                <p
-                    ref={text1Ref}
-                    className="text-3xl md:text-5xl font-bold tracking-tight text-light/40 text-balance leading-snug"
-                >
-                    Lo normal es preguntar: <br />¿qué falló en el cierre contable?
-                </p>
+            <div className="relative z-10 max-w-5xl mx-auto flex flex-col gap-8 text-center md:text-left">
+                <h2 className="text-sm font-mono text-secondary uppercase tracking-widest font-bold">
+                    Nuestro Propósito
+                </h2>
 
                 <p
                     ref={text2Ref}
-                    className="text-4xl md:text-7xl font-bold tracking-tighter text-light text-balance leading-none"
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-light text-balance leading-[1.1]"
                 >
-                    Nosotros preguntamos: <br />
-                    <span className="text-primary italic">¿cómo eliminamos tu riesgo regulatorio?</span>
+                    Hacernos cargo del proceso contable en forma integral para que el directorio pueda competir con grandes corporaciones desde una <span className="text-secondary italic">base administrativa ordenada</span> y libre de riesgos regulatorios.
                 </p>
             </div>
         </section>
