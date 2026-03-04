@@ -49,13 +49,19 @@ const Hero = () => {
             <div className="absolute inset-0 z-10 bg-gradient-to-tr from-dark/90 via-dark/50 to-transparent" />
 
             {/* Content */}
-            <div ref={textRef} className="relative z-20 max-w-7xl w-full mx-auto flex flex-col gap-2">
-                <h1 ref={line1Ref} className="text-light text-5xl md:text-7xl font-bold tracking-tight opacity-0 translate-y-12">
-                    El rigor es el
-                </h1>
-                <h2 ref={line2Ref} className="text-light text-7xl md:text-[8rem] leading-none font-bold tracking-tighter opacity-0 translate-y-12">
-                    Estándar.
-                </h2>
+            <div ref={textRef} className="relative z-20 max-w-7xl w-full mx-auto flex flex-col gap-6">
+                <div className="flex flex-col gap-2">
+                    <h1 ref={line1Ref} className="text-light text-5xl md:text-7xl font-bold tracking-tight opacity-0 translate-y-12">
+                        El rigor es el
+                    </h1>
+                    <h2 ref={line2Ref} className="text-light text-7xl md:text-[8rem] leading-none font-bold tracking-tighter opacity-0 translate-y-12">
+                        Estándar.
+                    </h2>
+                </div>
+
+                <p className="text-light/80 text-lg md:text-2xl max-w-3xl leading-relaxed font-medium mt-4 animate-fade-in stagger-3">
+                    Ayudamos a nuestros clientes a través del proceso contable completo con estándares de corporación internacional.
+                </p>
             </div>
         </section>
     );

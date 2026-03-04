@@ -83,9 +83,9 @@ const FeatureBalance = () => {
     return (
         <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-3">
-                <h4 className="text-2xl font-bold tracking-tight">Cierre Estructurado.</h4>
+                <h4 className="text-2xl font-bold tracking-tight">Especialización.</h4>
                 <p className="text-dark/70 text-balance leading-relaxed">
-                    Reemplazamos la incertidumbre de fin de mes por un proceso predecible y blindado.
+                    Empresa especializada en la externalización total del proceso contable para el segmento mediano en Chile.
                 </p>
             </div>
 
@@ -156,9 +156,9 @@ const FeatureTelemetry = () => {
     return (
         <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-3">
-                <h4 className="text-2xl font-bold tracking-tight">Telemetría en vivo.</h4>
+                <h4 className="text-2xl font-bold tracking-tight">Operación Integral.</h4>
                 <p className="text-dark/70 text-balance leading-relaxed">
-                    Monitorización constante de vectores de riesgo y salud financiera, sin cajas negras.
+                    Proveemos el ERP, lo configuramos a la medida y operamos tanto la contabilidad diaria como el cierre mensual.
                 </p>
             </div>
 
@@ -262,9 +262,9 @@ const FeatureProtocol = () => {
     return (
         <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-3">
-                <h4 className="text-2xl font-bold tracking-tight">Protocolo estricto.</h4>
+                <h4 className="text-2xl font-bold tracking-tight">Rigor Técnico.</h4>
                 <p className="text-dark/70 text-balance leading-relaxed">
-                    Entregables calendarizados rigurosamente. No hay sorpresas, solo la certeza de un reloj suizo.
+                    Operamos bajo exigentes estándares de corporación internacional, garantizando rigor técnico y cumplimiento normativo absoluto.
                 </p>
             </div>
 
