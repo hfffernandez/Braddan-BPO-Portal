@@ -37,9 +37,9 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:flex gap-8 items-center font-medium">
-                <a href="#features" className="hover:text-secondary transition-colors">Servicios</a>
-                <a href="#archivo" className="hover:text-secondary transition-colors">Trazabilidad</a>
-                <a href="#about" className="hover:text-secondary transition-colors">Nosotros</a>
+                <a href="#features" className="hover:text-secondary transition-colors text-sm uppercase tracking-wider">Servicios</a>
+                <a href="#features" className="hover:text-secondary transition-colors text-sm uppercase tracking-wider">Trazabilidad</a>
+                <a href="#archivo" className="hover:text-secondary transition-colors text-sm uppercase tracking-wider">Nosotros</a>
             </div>
 
             <button className={`hidden md:block px-6 py-2 rounded-6xl font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${isScrolled
