@@ -99,7 +99,7 @@ const Archivo = () => {
                 textColor="text-primary"
                 title="Empatía Profesional"
                 subtitle="Principio Innegociable"
-                description="Actuamos como aliados estratégicos del directorio, no como simples proveedores. Entendemos tu negocio."
+                description="Actuamos como soporte de información del directorio, no como simples proveedores de datos contables."
                 visual={<DoubleHelix color="#6D414E" />}
             />
 
