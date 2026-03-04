@@ -162,17 +162,26 @@ const FeatureTelemetry = () => {
                 </p>
             </div>
 
-            <div className="relative h-64 w-full bg-dark rounded-4xl flex items-center p-8 shadow-2xl overflow-hidden">
+            <div className="relative h-64 w-full bg-dark rounded-4xl flex items-center p-8 shadow-2xl overflow-hidden border border-white/5">
+                {/* Radar Grid Background */}
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#8B7E5B_1px,transparent_1px),linear-gradient(to_bottom,#8B7E5B_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                </div>
+
+                {/* Horizontal Scan line */}
+                <div className="absolute w-full h-[1px] bg-secondary/30 top-0 left-0 animate-scan"></div>
+
                 {/* Pulsing indicator */}
                 <div className="absolute top-6 left-6 flex items-center gap-2">
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
                     </span>
-                    <span className="text-[10px] font-mono text-secondary/70 uppercase tracking-widest">Live</span>
+                    <span className="text-[10px] font-mono text-secondary/70 uppercase tracking-widest">In Live Link</span>
                 </div>
 
-                <div className="font-mono text-sm md:text-base text-light/90 w-full mt-4">
+                <div className="font-mono text-sm md:text-base text-light/90 w-full mt-4 relative z-10">
                     <span className="text-secondary/50 mr-2">{'>'}</span>
                     {text}
                     <span className="ml-[2px] inline-block w-2 bg-secondary animate-pulse h-4 align-middle"></span>

@@ -1,5 +1,6 @@
-
+import { useRef } from 'react';
 import { Check } from 'lucide-react';
+import gsap from 'gsap';
 
 const Pricing = () => {
     return (
@@ -78,14 +79,38 @@ const PricingCard = ({
     features: string[],
     isPopular?: boolean
 }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    const onMouseEnter = () => {
+        gsap.to(cardRef.current, {
+            y: -12,
+            scale: isPopular ? 1.07 : 1.02,
+            duration: 0.6,
+            ease: "elastic.out(1, 0.75)"
+        });
+    };
+
+    const onMouseLeave = () => {
+        gsap.to(cardRef.current, {
+            y: 0,
+            scale: isPopular ? 1.05 : 1,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+    };
+
     return (
-        <div className={`relative flex flex-col p-8 rounded-[2.5rem] border transition-transform duration-300 hover:-translate-y-2 ${isPopular
-            ? 'bg-primary text-light border-primary shadow-2xl scale-105 z-10'
-            : 'bg-white text-dark border-dark/10 shadow-lg'
-            }`}>
+        <div
+            ref={cardRef}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            className={`relative flex flex-col p-8 rounded-[2.5rem] border transition-shadow duration-300 ${isPopular
+                ? 'bg-primary text-light border-primary shadow-2xl z-10 scale-105'
+                : 'bg-white text-dark border-dark/10 shadow-lg'
+                }`}>
 
             {isPopular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-primary font-bold text-xs px-4 py-1 rounded-full uppercase tracking-widest">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-primary font-bold text-xs px-4 py-1 rounded-full uppercase tracking-widest shadow-md">
                     Recomendado
                 </div>
             )}
@@ -114,13 +139,19 @@ const PricingCard = ({
                 </ul>
             </div>
 
-            <button className={`mt-10 w-full py-4 rounded-full font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden relative group ${isPopular
-                ? 'bg-secondary text-primary'
+            <button className={`mt-10 w-full py-4 rounded-full font-bold transition-all duration-300 active:scale-[0.98] overflow-hidden relative group ${isPopular
+                ? 'bg-secondary text-primary shadow-lg shadow-secondary/20'
                 : 'bg-dark text-light hover:bg-primary'
                 }`}>
-                <span className="relative z-10">Agendar evaluación</span>
+                <span className="relative z-10 transition-transform duration-300 group-hover:scale-110 inline-block font-mono text-xs uppercase tracking-widest">Agendar evaluación</span>
+
+                {/* Shine effect for popular button */}
+                {isPopular && (
+                    <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-40 group-hover:animate-shine"></div>
+                )}
+
                 {/* Hover slide effect */}
-                <div className="absolute inset-0 h-full w-full bg-light/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
+                <div className="absolute inset-0 h-full w-full bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
             </button>
 
         </div>

@@ -25,7 +25,20 @@ export default {
       letterSpacing: {
         tighter: '-0.05em',
         tight: '-0.025em',
-      }
+      },
+      keyframes: {
+        shine: {
+          '100%': { left: '200%' },
+        },
+        scan: {
+          '0%': { top: '0%' },
+          '100%': { top: '100%' },
+        },
+      },
+      animation: {
+        shine: 'shine 0.8s ease-in-out infinite',
+        scan: 'scan 4s linear infinite',
+      },
     },
   },
   plugins: [],
